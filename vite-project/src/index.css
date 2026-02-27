@@ -45,3 +45,7 @@
   --color-priority-middle: #ffbe0b;
   --color-priority-low: #08a508;
 }
+
+body {
+  background-color: var(--color-bg);
+}

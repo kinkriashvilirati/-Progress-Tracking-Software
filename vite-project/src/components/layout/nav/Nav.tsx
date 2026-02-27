@@ -1,3 +1,4 @@
+import Theme from "./Theme";
 import { NavLink } from "react-router-dom";
 
 export default function Nav() {
@@ -12,6 +13,9 @@ export default function Nav() {
         </li>
         <li>
           <NavLink to="/exercises">ExercisesInside</NavLink>
+        </li>
+        <li>
+          <Theme />
         </li>
       </ul>
     </div>
