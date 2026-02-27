@@ -1,1 +1,47 @@
 @import "tailwindcss";
+
+:root {
+  --color-bg: #ffff;
+  --color-primary: #8338ec;
+  --color-text-dark: #212529;
+  --color-text-light: #343a40;
+  --color-border-gray: #dee2e6;
+  --color-status-start: #f7bc30;
+  --color-status-progress: #fb5607;
+  --color-status-test: #ff006e;
+  --color-status-finish: #3a86ff;
+  --color-depart-design: #ff66a8;
+  --color-depart-infTech: #ffd86d;
+  --color-depart-lojistics: #89b6ff;
+  --color-depart-marketing: #fd9a6a;
+  --color-priority-top: #fa4d4d;
+  --color-priority-middle: #ffbe0b;
+  --color-priority-low: #08a508;
+}
+:root[data-theme="dark"] {
+  --color-bg: #0f1115;
+
+  --color-primary: #a78bfa;
+
+  --color-text-dark: #f1f3f5; /* main text on dark bg */
+  --color-text-light: #cfd4da; /* secondary text */
+
+  --color-border-gray: #2a2f36;
+
+  /* status colors (kept vivid, slightly adjusted for dark) */
+  --color-status-start: #f7bc30;
+  --color-status-progress: #fb5607;
+  --color-status-test: #ff006e;
+  --color-status-finish: #3a86ff;
+
+  /* departments */
+  --color-depart-design: #ff66a8;
+  --color-depart-infTech: #ffd86d;
+  --color-depart-lojistics: #89b6ff;
+  --color-depart-marketing: #fd9a6a;
+
+  /* priority */
+  --color-priority-top: #fa4d4d;
+  --color-priority-middle: #ffbe0b;
+  --color-priority-low: #08a508;
+}
