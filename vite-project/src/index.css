@@ -5,6 +5,7 @@
 :root {
   --ui-bg: #ffff;
   --ui-primary: #8338ec;
+  --ui-primaryHover: #a78bfa;
   --ui-text-dark: #212529;
   --ui-text-light: #343a40;
   --ui-border-gray: #dee2e6;
@@ -24,6 +25,7 @@
 :root[data-theme="dark"] {
   --ui-bg: #0f1115;
   --ui-primary: #a78bfa;
+  --ui-primaryHover: #8338ec;
   --ui-text-dark: #f1f3f5;
   --ui-text-light: #cfd4da;
   --ui-border-gray: #2a2f36;
@@ -43,6 +45,7 @@
 @theme inline {
   --color-bg: var(--ui-bg);
   --color-primary: var(--ui-primary);
+  --color-primaryHover: var(--ui-primaryHover);
   --color-text-dark: var(--ui-text-dark);
   --color-text-light: var(--ui-text-light);
   --color-border-gray: var(--ui-border-gray);
@@ -57,6 +60,14 @@
   --color-priority-top: var(--ui-priority-top);
   --color-priority-middle: var(--ui-priority-middle);
   --color-priority-low: var(--ui-priority-low);
+}
+@theme {
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lmd: 850px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-xxl: 1536px;
 }
 body {
   background-color: var(--color-bg);
