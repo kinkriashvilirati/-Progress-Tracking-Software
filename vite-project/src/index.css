@@ -1,51 +1,72 @@
 @import "tailwindcss";
 
+@import "tailwindcss";
+
 :root {
-  --color-bg: #ffff;
-  --color-primary: #8338ec;
-  --color-text-dark: #212529;
-  --color-text-light: #343a40;
-  --color-border-gray: #dee2e6;
-  --color-status-start: #f7bc30;
-  --color-status-progress: #fb5607;
-  --color-status-test: #ff006e;
-  --color-status-finish: #3a86ff;
-  --color-depart-design: #ff66a8;
-  --color-depart-infTech: #ffd86d;
-  --color-depart-lojistics: #89b6ff;
-  --color-depart-marketing: #fd9a6a;
-  --color-priority-top: #fa4d4d;
-  --color-priority-middle: #ffbe0b;
-  --color-priority-low: #08a508;
+  --ui-bg: #ffff;
+  --ui-primary: #8338ec;
+  --ui-text-dark: #212529;
+  --ui-text-light: #343a40;
+  --ui-border-gray: #dee2e6;
+  --ui-status-start: #f7bc30;
+  --ui-status-progress: #fb5607;
+  --ui-status-test: #ff006e;
+  --ui-status-finish: #3a86ff;
+  --ui-depart-design: #ff66a8;
+  --ui-depart-infTech: #ffd86d;
+  --ui-depart-lojistics: #89b6ff;
+  --ui-depart-marketing: #fd9a6a;
+  --ui-priority-top: #fa4d4d;
+  --ui-priority-middle: #ffbe0b;
+  --ui-priority-low: #08a508;
 }
+
 :root[data-theme="dark"] {
-  --color-bg: #0f1115;
-
-  --color-primary: #a78bfa;
-
-  --color-text-dark: #f1f3f5; /* main text on dark bg */
-  --color-text-light: #cfd4da; /* secondary text */
-
-  --color-border-gray: #2a2f36;
-
-  /* status colors (kept vivid, slightly adjusted for dark) */
-  --color-status-start: #f7bc30;
-  --color-status-progress: #fb5607;
-  --color-status-test: #ff006e;
-  --color-status-finish: #3a86ff;
-
-  /* departments */
-  --color-depart-design: #ff66a8;
-  --color-depart-infTech: #ffd86d;
-  --color-depart-lojistics: #89b6ff;
-  --color-depart-marketing: #fd9a6a;
-
-  /* priority */
-  --color-priority-top: #fa4d4d;
-  --color-priority-middle: #ffbe0b;
-  --color-priority-low: #08a508;
+  --ui-bg: #0f1115;
+  --ui-primary: #a78bfa;
+  --ui-text-dark: #f1f3f5;
+  --ui-text-light: #cfd4da;
+  --ui-border-gray: #2a2f36;
+  --ui-status-start: #f7bc30;
+  --ui-status-progress: #fb5607;
+  --ui-status-test: #ff006e;
+  --ui-status-finish: #3a86ff;
+  --ui-depart-design: #ff66a8;
+  --ui-depart-infTech: #ffd86d;
+  --ui-depart-lojistics: #89b6ff;
+  --ui-depart-marketing: #fd9a6a;
+  --ui-priority-top: #fa4d4d;
+  --ui-priority-middle: #ffbe0b;
+  --ui-priority-low: #08a508;
 }
 
+@theme inline {
+  --color-bg: var(--ui-bg);
+  --color-primary: var(--ui-primary);
+  --color-text-dark: var(--ui-text-dark);
+  --color-text-light: var(--ui-text-light);
+  --color-border-gray: var(--ui-border-gray);
+  --color-status-start: var(--ui-status-start);
+  --color-status-progress: var(--ui-status-progress);
+  --color-status-test: var(--ui-status-test);
+  --color-status-finish: var(--ui-status-finish);
+  --color-depart-design: var(--ui-depart-design);
+  --color-depart-infTech: var(--ui-depart-infTech);
+  --color-depart-lojistics: var(--ui-depart-lojistics);
+  --color-depart-marketing: var(--ui-depart-marketing);
+  --color-priority-top: var(--ui-priority-top);
+  --color-priority-middle: var(--ui-priority-middle);
+  --color-priority-low: var(--ui-priority-low);
+}
 body {
   background-color: var(--color-bg);
+}
+
+@layer components {
+  .btn {
+    @apply bg-(--color-primary) text-white py-2 px-4 rounded-md cursor-pointer;
+  }
+  .state {
+    @apply max-w-85.25 h-13.5;
+  }
 }
