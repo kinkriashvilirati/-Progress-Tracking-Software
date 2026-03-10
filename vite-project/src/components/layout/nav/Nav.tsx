@@ -3,9 +3,40 @@ import { NavLink } from "react-router-dom";
 import { navItems } from "../../../data/frontData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars as Bar } from "@fortawesome/free-solid-svg-icons";
+// import { useState } from "react";
+import { useBar } from "../../../context/TopContext";
 export default function Nav() {
+  const { isOpenNav, setIsOpenNav } = useBar();
+  const barClick = () => {
+    setIsOpenNav(!isOpenNav);
+  };
   return (
     <header className="flex justify-between top-4 fixed left-5 right-5">
+      <div
+        className={`absolute transition-all  duration-500 ${isOpenNav ? "top-20" : "-top-50"} bg-bg  w-full z-10`}
+      >
+        <ul className="flex flex-wrap-reverse text-text-dark justify-center items-center gap-4 *:w-full sm:*:w-auto lmd:hidden">
+          <li className="w-full">
+            <Theme />
+          </li>
+          <li>
+            <button
+              className="border border-primary px-4 py-2 text-primary hover:border-primaryHover transition-colors duration-300 hover:text-primaryHover cursor-pointer rounded-md"
+              type="button"
+            >
+              {navItems.createEmployee}
+            </button>
+          </li>
+          <li>
+            <NavLink
+              className=" bg-primary px-4 py-2 text-bg hover:bg-primaryHover transition-colors duration-300 cursor-pointer rounded-md"
+              to="/create-exercise"
+            >
+              {navItems.createExercise}
+            </NavLink>
+          </li>
+        </ul>
+      </div>
       <div className="flex">
         <NavLink
           className="cursor-pointer inline text-primary font-extrabold text-2xl"
@@ -15,9 +46,12 @@ export default function Nav() {
         </NavLink>
         <img className="inline" src="/Hourglass.png" alt="" />
       </div>
-      <nav className="border-box">
+      <nav className="border-box relative flex-2  flex justify-end">
         <div className="lmd:hidden">
-          <button className="text-primary hover:text-primaryHover transition-colors duration-300 cursor-pointer">
+          <button
+            className={`text-primary hover:text-primaryHover transition-transform duration-300 cursor-pointer ${isOpenNav ? "rotate-90" : ""}`}
+            onClick={barClick}
+          >
             <FontAwesomeIcon icon={Bar} size="2x" />
           </button>
         </div>

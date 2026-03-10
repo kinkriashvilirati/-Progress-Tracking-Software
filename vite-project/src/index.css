@@ -70,6 +70,7 @@
   --breakpoint-xxl: 1536px;
 }
 body {
+  transition: 0.5s;
   background-color: var(--color-bg);
 }
 
