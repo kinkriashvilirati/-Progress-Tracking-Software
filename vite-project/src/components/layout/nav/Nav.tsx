@@ -13,7 +13,7 @@ export default function Nav() {
   return (
     <header className="flex justify-between top-4 fixed left-5 right-5">
       <div
-        className={`absolute transition-all  duration-500 ${isOpenNav ? "top-20" : "-top-50"} bg-bg  w-full z-10`}
+        className={`absolute transition-all  duration-500 ${isOpenNav ? "top-20" : "-top-50"} bg-bg  w-full z-10 `}
       >
         <ul className="flex flex-wrap-reverse text-text-dark justify-center items-center gap-4 *:w-full sm:*:w-auto lmd:hidden">
           <li className="w-full">

@@ -1,6 +1,7 @@
 import type { ButtonStateProps } from "../../types/CommonTypes";
 
 export default function ButtonState({ content, status }: ButtonStateProps) {
+  console.log(status);
   return (
     <>
       <button

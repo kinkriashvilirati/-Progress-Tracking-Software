@@ -7,11 +7,11 @@ export default function AppLayout() {
   return (
     <div className="px-5">
       <Nav />
-      <div
-        className={`transition-all duration-500 ${isOpenNav ? "pt-45" : "pt-20"}`}
+      <main
+        className={`transition-all duration-500 ${isOpenNav ? "sm:pt-45 pt-65" : "pt-20"}`}
       >
         <Outlet />
-      </div>
+      </main>
     </div>
   );
 }
