@@ -11,9 +11,9 @@ export default function Nav() {
     setIsOpenNav(!isOpenNav);
   };
   return (
-    <header className="flex justify-between top-4 fixed left-5 right-5">
+    <header className=" bg-bg flex justify-between top-0 py-5 fixed left-5 right-5 z-20">
       <div
-        className={`absolute transition-all  duration-500 ${isOpenNav ? "top-20" : "-top-50"} bg-bg  w-full z-10 `}
+        className={`py-5 absolute transition-all  duration-500 ${isOpenNav ? "top-19" : "-top-100"} bg-bg  w-full z-10 `}
       >
         <ul className="flex flex-wrap-reverse text-text-dark justify-center items-center gap-4 *:w-full sm:*:w-auto lmd:hidden">
           <li className="w-full">
@@ -46,7 +46,7 @@ export default function Nav() {
         </NavLink>
         <img className="inline" src="/Hourglass.png" alt="" />
       </div>
-      <nav className="border-box relative flex-2  flex justify-end">
+      <nav className="relative flex-2  flex justify-end z-20">
         <div className="lmd:hidden">
           <button
             className={`text-primary hover:text-primaryHover transition-transform duration-300 cursor-pointer ${isOpenNav ? "rotate-90" : ""}`}

@@ -72,13 +72,23 @@
 body {
   transition: 0.5s;
   background-color: var(--color-bg);
+  font-family: "arial";
 }
 
 @layer components {
   .btn {
-    @apply bg-(--color-primary) text-white py-2 px-4 rounded-md cursor-pointer;
+    @apply bg-(--color-primary) text-white py-2 px-4 rounded-md cursor-pointer  transition-colors duration-300 hover:bg-(--color-primaryHover)z;
   }
   .state {
     @apply max-w-85.25 h-13.5;
   }
+  .filterPart {
+    @apply flex items-center justify-start cursor-pointer;
+  }
+}
+
+h1 {
+  color: var(--ui-text-dark);
+  font-weight: 600;
+  font-size: 2.5rem;
 }

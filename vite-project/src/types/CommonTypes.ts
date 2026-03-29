@@ -8,3 +8,10 @@ export interface NavItems {
   createEmployee: string;
   createExercise: string;
 }
+
+export type FilterType = "departament" | "priority" | "employee";
+export interface FilterProps {
+  isFilter: boolean;
+  setIsFilter?: React.Dispatch<React.SetStateAction<boolean>>;
+  filterType?: FilterType;
+}
