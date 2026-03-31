@@ -77,7 +77,7 @@ body {
 
 @layer components {
   .btn {
-    @apply bg-(--color-primary) text-white py-2 px-4 rounded-md cursor-pointer  transition-colors duration-300 hover:bg-(--color-primaryHover)z;
+    @apply bg-(--color-primary) text-white py-2 px-4 rounded-md cursor-pointer  transition-colors duration-300 hover:bg-(--color-primaryHover);
   }
   .state {
     @apply max-w-85.25 h-13.5;
