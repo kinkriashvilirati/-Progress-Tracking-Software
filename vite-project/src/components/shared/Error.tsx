@@ -34,3 +34,21 @@ export function ComponentError() {
     </div>
   );
 }
+
+export function EmptyFilter() {
+  return (
+    <div className="flex justify-center">
+      <div className="inline-flex items-center gap-3 rounded-2xl  bg-(--ui-primary)/10 px-4 py-3 shadow-sm">
+        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-lg font-black text-white shadow-md">
+          0
+        </div>
+
+        <div className="flex flex-col">
+          <span className="text-sm font-bold text-text-dark">
+            No items found
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}

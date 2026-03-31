@@ -1,34 +1,55 @@
 import { useQuery } from "@tanstack/react-query";
-import { filterItems } from "../../data/filterData";
 import type { FilterType } from "../../types/CommonTypes";
-import { getDepartments } from "../../data/APIGet";
-import { useEffect, useState } from "react";
+import { getDepartments, getPriorities } from "../../data/APIGet";
 import { ComponentLoading } from "../shared/Loading";
-import { ComponentError } from "../shared/Error";
+import { ComponentError, EmptyFilter } from "../shared/Error";
+import type { FilterItem } from "../../types/APITypes";
 
 export default function FilterItem({ filterType }: { filterType: FilterType }) {
   const isDepartment = filterType === "departament";
-  const [isLoading, setIsLoading] = useState(true);
+  const isPriority = filterType === "priority";
+  const isEmployee = filterType === "employee";
+
   const departmentsQury = useQuery({
     queryKey: ["departments"],
     queryFn: getDepartments,
-
     enabled: isDepartment,
   });
-  useEffect(() => {
-    setIsLoading(departmentsQury.isLoading);
-  }, [departmentsQury]);
 
-  if (departmentsQury.isError) return <ComponentError />;
+  const priorityQuery = useQuery({
+    queryKey: ["priorities"],
+    queryFn: getPriorities,
+    enabled: isPriority,
+  });
+  const isLoading = priorityQuery.isLoading || departmentsQury.isLoading;
+
+  if (isLoading) return <ComponentLoading />;
+  const priorityItems = priorityQuery.data?.map((item) => {
+    return {
+      name: item.name,
+      id: item.id,
+    };
+  });
 
   const departmentItems =
     departmentsQury.data?.map((item) => {
       return {
-        item: item.name,
+        name: item.name,
         id: item.id,
       };
     }) ?? [];
-  const data = isDepartment ? departmentItems : filterItems[filterType];
+
+  let data: FilterItem[] = [];
+  if (isDepartment) {
+    data = departmentItems ?? [];
+  } else if (isPriority) {
+    data = priorityItems ?? [];
+  } else if (isEmployee) {
+    data = [];
+  }
+
+  if (departmentsQury.isError) return <ComponentError />;
+  if (data.length === 0) return <EmptyFilter />;
   return (
     <>
       {isLoading ? (
@@ -42,11 +63,11 @@ export default function FilterItem({ filterType }: { filterType: FilterType }) {
             >
               <input type="checkbox" className="peer sr-only" />
 
-              <span className="flex h-5 w-5 items-center justify-center rounded border border-primary bg-transparent text-transparent peer-checked:text-primary">
+              <span className="flex bg-finish h-5 w-5 items-center justify-center rounded border border-primary bg-transparent text-transparent peer-checked:text-primary">
                 ✓
               </span>
 
-              <span>{item.item}</span>
+              <span>{item.name}</span>
             </label>
           );
         })
